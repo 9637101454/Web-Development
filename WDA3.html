@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link ref="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Form</h1>
+    
+    <h2>Personal Information</h2>
+    
+    <form>
+        <p>
+            <strong>Name:</strong><br>
+            <input type="text" name="name" size="35" maxlength="50" required><br>
+        </p>
+        <p>
+            <strong>Email:</strong><br>
+            <input type="email" name="email" size="35" maxlength="100" required><br>
+        </p>
+        <p>
+            <strong>Gender:</strong><br>
+            <input type="radio" name="gender" value="male" checked> Male &nbsp;&nbsp;
+            <input type="radio" name="gender" value="female"> Female &nbsp;&nbsp;
+            <input type="radio" name="gender" value="other"> Other<br>
+        </p>
+        <p>
+            <strong>Date of Birth:</strong><br>
+            <input type="date" name="dob" max="2010-01-01"><br>
+        </p>
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+</body>
+</html>
