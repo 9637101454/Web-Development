@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Webpage using DOM</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .removeBtn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Welcome to My Webpage</h1>
+
+    <!-- Input box for heading -->
+    <input type="text" id="headingInput" placeholder="Enter new heading">
+    <button onclick="changeText()">Change Heading</button>
+    <br><br>
+
+    <button onclick="showDate()">Show Date & Time</button>
+    <button onclick="changeColor()">Change Background</button>
+
+    <h3>Add Items to List</h3>
+    <input type="text" id="itemInput" placeholder="Enter item">
+    <button onclick="addItem()">Add Item</button>
+
+    <ul id="itemList"></ul>
+    <p id="dateTime"></p>
+
+    <script>
+        function changeText() {
+            let newHeading = document.getElementById("headingInput").value;
+            if (newHeading && newHeading.trim() !== "") {
+                document.getElementById("heading").innerHTML = newHeading;
+                document.getElementById("headingInput").value = ""; // clear input
+            }
+        }
+
+        function showDate() {
+            document.getElementById("dateTime").innerHTML = new Date();
+        }
+
+        function changeColor() {
+            document.body.style.backgroundColor =
+                "#" + Math.floor(Math.random() * 16777215).toString(16);
+        }
+
+        function addItem() {
+            let input = document.getElementById("itemInput").value;
+            if (input !== "") {
+                let li = document.createElement("li");
+                li.textContent = input;
+
+                // Create remove button
+                let removeBtn = document.createElement("button");
+                removeBtn.textContent = "Remove";
+                removeBtn.className = "removeBtn";
+                removeBtn.onclick = function() {
+                    li.remove();
+                };
+
+                li.appendChild(removeBtn);
+                document.getElementById("itemList").appendChild(li);
+                document.getElementById("itemInput").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
